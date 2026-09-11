@@ -1,0 +1,63 @@
+/**
+ * Defaults do documento: o que vale para a página inteira antes de qualquer
+ * componente entrar em cena.
+ */
+
+body {
+  min-height: 100dvh;
+  background: var(--color-background);
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Trocar de tema não deve ser um corte seco entre branco e preto. */
+  transition:
+    background-color var(--duration-medium) var(--easing-standard),
+    color var(--duration-medium) var(--easing-standard);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  line-height: var(--line-height-tight);
+}
+
+a {
+  color: var(--color-brand-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-brand-light);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+}
+
+::selection {
+  background: var(--color-brand-soft-strong);
+  color: var(--color-text);
+}
+
+/* Barra de rolagem discreta e consistente com o tema, em vez do cinza padrão
+   do sistema, que no tema escuro aparece como uma faixa clara na lateral. */
+* {
+  scrollbar-color: var(--color-border-strong) transparent;
+  scrollbar-width: thin;
+}

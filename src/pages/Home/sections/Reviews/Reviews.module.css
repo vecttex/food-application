@@ -1,0 +1,55 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow:
+    var(--ring),
+    var(--shadow-sm);
+}
+
+.comment {
+  font-size: var(--text-md);
+  line-height: var(--line-height-body);
+  color: var(--color-text-soft);
+}
+
+/* Aspas decorativas: dão a leitura de "citação" sem precisar de blockquote
+   estilizado nem de aspas digitadas no conteúdo. */
+.comment::before {
+  content: '“';
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: 1.4em;
+  line-height: 0;
+  vertical-align: -0.15em;
+  margin-right: 0.1em;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+.name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: var(--space-4);
+  }
+}

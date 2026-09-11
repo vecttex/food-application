@@ -1,0 +1,23 @@
+/**
+ * Elevação: sombra, anel e vidro.
+ *
+ * Os valores de sombra ficam aqui, mas a COR da sombra é um token de tema
+ * (`--shadow-color`): no claro ela é preto translúcido; no escuro, sombra quase
+ * não aparece e quem separa as camadas é o anel de borda. Por isso cada tema
+ * redefine `--shadow-color` e `--sombra-intensidade`.
+ */
+
+:root {
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 12px -2px var(--shadow-color);
+  --shadow-lg: 0 12px 32px -8px var(--shadow-color);
+  --shadow-xl: 0 24px 60px -16px var(--shadow-color);
+
+  /* Realce em volta de algo na cor da marca (botão principal, cartão ativo). */
+  --shadow-brand: 0 8px 24px -10px var(--color-brand);
+
+  --ring: inset 0 0 0 1px var(--color-border);
+  --ring-strong: inset 0 0 0 1px var(--color-border-strong);
+
+  --glass-blur: blur(16px) saturate(1.4);
+}

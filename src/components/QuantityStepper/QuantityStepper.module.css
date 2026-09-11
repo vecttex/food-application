@@ -1,0 +1,30 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.22rem;
+  background: var(--color-surface-3);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--ring);
+  flex-shrink: 0;
+}
+
+.value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 768px) {
+  .base {
+    gap: var(--space-2);
+    padding: 0.28rem;
+  }
+
+  .value {
+    font-size: var(--text-md);
+  }
+}

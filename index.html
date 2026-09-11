@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Valor inicial; `applyThemeToDocument` reescreve com a cor do tema ativo. -->
+    <meta name="theme-color" content="#fbfaf8" />
+    <meta
+      name="description"
+      content="Brasa Nove — hambúrgueres artesanais grelhados na brasa. Veja o cardápio e peça pelo WhatsApp."
+    />
+
+    <script>
+      /**
+       * Tema e cor da marca antes do primeiro pintar.
+       *
+       * Precisa ser inline e sincrono: qualquer coisa carregada depois ja chega
+       * tarde, e quem usa tema escuro ve um flash branco no meio do caminho.
+       * A cor da marca vem do banco, entao aqui vale a ultima conhecida — o
+       * provider corrige depois, se o admin tiver trocado.
+       *
+       * As chaves e as regras sao as mesmas de `src/features/theme/themeStorage.ts`
+       * e `src/features/theme/brandStorage.ts` — se mudarem la, mudam aqui.
+       */
+      (function () {
+        var raiz = document.documentElement
+        try {
+          var salvo = localStorage.getItem('brasa-nove-tema')
+          var pref = salvo === 'light' || salvo === 'dark' || salvo === 'system' ? salvo : 'system'
+          var escuro =
+            pref === 'dark' ||
+            (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          raiz.dataset.theme = escuro ? 'dark' : 'light'
+          raiz.dataset.brand = localStorage.getItem('brasa-nove-marca') || 'ambar'
+        } catch (e) {
+          raiz.dataset.theme = 'light'
+          raiz.dataset.brand = 'ambar'
+        }
+      })()
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Brasa Nove</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

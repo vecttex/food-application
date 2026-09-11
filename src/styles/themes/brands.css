@@ -1,0 +1,218 @@
+/**
+ * Paletas de marca.
+ *
+ * A cor da marca é escolhida no admin e vale para o site inteiro. Cada paleta
+ * declara oito valores — quatro para o tema claro, quatro para o escuro — e os
+ * arquivos de tema (`light.css`, `dark.css`) apenas apontam os tokens
+ * semânticos (`--color-brand*`) para o par certo. Nenhum componente sabe que
+ * existe mais de uma cor.
+ *
+ * Os quatro papéis, repetidos por tema:
+ *   `fundo`        preenchimento de botão, selo sólido, pastilha ativa.
+ *   `fundo-hover`  o mesmo preenchimento sob o cursor.
+ *   `tinta`        a marca virando TEXTO sobre a superfície da página.
+ *   `sobre`        o texto por cima do preenchimento — a "cor secundária".
+ *
+ * `tinta` e `fundo` são valores diferentes de propósito: o tom que funciona
+ * como preenchimento quase nunca tem contraste suficiente para virar texto
+ * sobre branco. Separá-los é o que mantém AA nas duas pontas.
+ *
+ * O seletor é `[data-brand=…]`, e não `:root[data-brand=…]`: assim o mesmo
+ * bloco serve para pintar o `<html>` e para o quadradinho de amostra no admin,
+ * que carrega o atributo em si mesmo. A amostra mostra a cor de verdade porque
+ * lê exatamente estas variáveis — nunca uma segunda cópia dos valores em
+ * JavaScript, que sairia de sincronia na primeira troca de tom.
+ *
+ * Espaço de cor: oklch. Como a lightness é perceptual, "clara" e "escura" são
+ * a MESMA lightness em todos os matizes — um verde claro e um azul claro têm o
+ * mesmo peso na tela, o que não valeria em HSL.
+ */
+
+/* --- Âmbar (padrão da casa) ------------------------------------------ */
+
+:root,
+[data-brand='ambar'] {
+  --brand-light-fill: oklch(0.72 0.16 78);
+  --brand-light-fill-hover: oklch(0.66 0.15 72);
+  --brand-light-ink: oklch(0.5 0.12 68);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.82 0.15 92);
+  --brand-dark-fill-hover: oklch(0.87 0.13 95);
+  --brand-dark-ink: oklch(0.82 0.15 92);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Verde ------------------------------------------------------------ */
+
+[data-brand='verde-claro'] {
+  --brand-light-fill: oklch(0.72 0.14 152);
+  --brand-light-fill-hover: oklch(0.66 0.14 152);
+  --brand-light-ink: oklch(0.48 0.12 152);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.82 0.13 152);
+  --brand-dark-fill-hover: oklch(0.87 0.11 152);
+  --brand-dark-ink: oklch(0.82 0.13 152);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='verde-escuro'] {
+  --brand-light-fill: oklch(0.46 0.11 155);
+  --brand-light-fill-hover: oklch(0.4 0.1 155);
+  --brand-light-ink: oklch(0.44 0.11 155);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.14 152);
+  --brand-dark-fill-hover: oklch(0.68 0.13 152);
+  --brand-dark-ink: oklch(0.76 0.12 152);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Azul ------------------------------------------------------------- */
+
+[data-brand='azul-claro'] {
+  --brand-light-fill: oklch(0.72 0.13 240);
+  --brand-light-fill-hover: oklch(0.66 0.14 240);
+  --brand-light-ink: oklch(0.48 0.15 250);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.82 0.11 235);
+  --brand-dark-fill-hover: oklch(0.87 0.09 235);
+  --brand-dark-ink: oklch(0.82 0.11 235);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='azul-escuro'] {
+  --brand-light-fill: oklch(0.46 0.16 258);
+  --brand-light-fill-hover: oklch(0.4 0.16 258);
+  --brand-light-ink: oklch(0.44 0.16 258);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.16 250);
+  --brand-dark-fill-hover: oklch(0.68 0.15 248);
+  --brand-dark-ink: oklch(0.76 0.12 245);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Vermelho --------------------------------------------------------- */
+
+[data-brand='vermelho-claro'] {
+  --brand-light-fill: oklch(0.72 0.16 25);
+  --brand-light-fill-hover: oklch(0.66 0.17 25);
+  --brand-light-ink: oklch(0.5 0.18 27);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.8 0.13 25);
+  --brand-dark-fill-hover: oklch(0.85 0.11 25);
+  --brand-dark-ink: oklch(0.8 0.13 25);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='vermelho-escuro'] {
+  --brand-light-fill: oklch(0.46 0.18 27);
+  --brand-light-fill-hover: oklch(0.4 0.17 27);
+  --brand-light-ink: oklch(0.45 0.18 27);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.19 27);
+  --brand-dark-fill-hover: oklch(0.68 0.18 27);
+  --brand-dark-ink: oklch(0.76 0.14 27);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Laranja ---------------------------------------------------------- */
+
+[data-brand='laranja-claro'] {
+  --brand-light-fill: oklch(0.72 0.16 50);
+  --brand-light-fill-hover: oklch(0.66 0.16 48);
+  --brand-light-ink: oklch(0.5 0.15 45);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.81 0.14 60);
+  --brand-dark-fill-hover: oklch(0.86 0.12 62);
+  --brand-dark-ink: oklch(0.81 0.14 60);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='laranja-escuro'] {
+  --brand-light-fill: oklch(0.46 0.13 45);
+  --brand-light-fill-hover: oklch(0.4 0.12 45);
+  --brand-light-ink: oklch(0.45 0.13 45);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.16 48);
+  --brand-dark-fill-hover: oklch(0.68 0.16 50);
+  --brand-dark-ink: oklch(0.76 0.14 55);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Roxo ------------------------------------------------------------- */
+
+[data-brand='roxo-claro'] {
+  --brand-light-fill: oklch(0.72 0.14 305);
+  --brand-light-fill-hover: oklch(0.66 0.15 305);
+  --brand-light-ink: oklch(0.5 0.17 300);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.81 0.12 305);
+  --brand-dark-fill-hover: oklch(0.86 0.1 305);
+  --brand-dark-ink: oklch(0.81 0.12 305);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='roxo-escuro'] {
+  --brand-light-fill: oklch(0.46 0.19 300);
+  --brand-light-fill-hover: oklch(0.4 0.18 300);
+  --brand-light-ink: oklch(0.45 0.19 300);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.19 302);
+  --brand-dark-fill-hover: oklch(0.68 0.18 302);
+  --brand-dark-ink: oklch(0.76 0.14 305);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Rosa ------------------------------------------------------------- */
+
+[data-brand='rosa-claro'] {
+  --brand-light-fill: oklch(0.72 0.16 350);
+  --brand-light-fill-hover: oklch(0.66 0.17 350);
+  --brand-light-ink: oklch(0.5 0.18 352);
+  --brand-light-on: var(--neutral-95);
+
+  --brand-dark-fill: oklch(0.81 0.13 350);
+  --brand-dark-fill-hover: oklch(0.86 0.11 350);
+  --brand-dark-ink: oklch(0.81 0.13 350);
+  --brand-dark-on: var(--neutral-97);
+}
+
+[data-brand='rosa-escuro'] {
+  --brand-light-fill: oklch(0.46 0.18 352);
+  --brand-light-fill-hover: oklch(0.4 0.17 352);
+  --brand-light-ink: oklch(0.45 0.18 352);
+  --brand-light-on: var(--neutral-2);
+
+  --brand-dark-fill: oklch(0.62 0.19 352);
+  --brand-dark-fill-hover: oklch(0.68 0.18 352);
+  --brand-dark-ink: oklch(0.76 0.15 352);
+  --brand-dark-on: var(--neutral-97);
+}
+
+/* --- Amostra ----------------------------------------------------------
+ * O quadradinho do admin mostra o par do tema que está na tela agora. As duas
+ * regras abaixo resolvem isso sem JavaScript: cada elemento com `data-brand`
+ * ganha `--brand-swatch*` apontando para o seu próprio par — inclusive o
+ * `<html>`, que é o alvo da segunda regra.
+ */
+
+[data-brand] {
+  --brand-swatch: var(--brand-light-fill);
+  --brand-swatch-on: var(--brand-light-on);
+}
+
+:root[data-theme='dark'] [data-brand],
+:root[data-theme='dark'][data-brand] {
+  --brand-swatch: var(--brand-dark-fill);
+  --brand-swatch-on: var(--brand-dark-on);
+}

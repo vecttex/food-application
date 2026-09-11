@@ -1,0 +1,60 @@
+/**
+ * Abas de categoria.
+ *
+ * Pílulas em um trilho que rola na horizontal: com sete categorias o conjunto
+ * não quebra linha nem espreme os rótulos até ficarem ilegíveis no celular.
+ */
+
+.list {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-3);
+  box-shadow: var(--ring);
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: 1 0 auto;
+  min-width: 5.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition);
+}
+
+.tab:hover:not(.active) {
+  color: var(--color-text);
+  background: var(--color-brand-soft);
+}
+
+.active {
+  background: var(--color-surface);
+  color: var(--color-brand-text);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .list {
+    gap: var(--space-1);
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 0.65rem 1.5rem;
+  }
+}

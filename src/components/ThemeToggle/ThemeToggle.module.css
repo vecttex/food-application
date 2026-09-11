@@ -1,0 +1,66 @@
+/**
+ * Controle de tema.
+ *
+ * O indicador da opção ativa é uma pastilha atrás do ícone. Ela vive no
+ * `::before` do próprio botão (e não em um elemento absoluto que desliza),
+ * porque com três alvos a animação de deslize custaria medir posição em JS —
+ * e o ganho visual não paga esse preço.
+ */
+
+.group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-3);
+  box-shadow: var(--ring);
+}
+
+.option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.option:hover:not(.active) {
+  color: var(--color-text);
+  background: var(--color-brand-soft);
+}
+
+.active {
+  background: var(--color-surface);
+  color: var(--color-brand-text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Variante compacta ---------------------------------------------- */
+
+.compact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-3);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.compact:hover {
+  background: var(--color-brand-soft);
+  color: var(--color-brand-text);
+}

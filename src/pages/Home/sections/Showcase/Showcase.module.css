@@ -1,0 +1,28 @@
+.rail {
+  gap: var(--space-3);
+  /* Espaço para a sombra e o translate do hover não serem cortados pelo
+     `overflow` do trilho. */
+  padding-block: var(--space-1) var(--space-4);
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 15rem;
+  flex-shrink: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--ring);
+}
+
+@media (min-width: 768px) {
+  .rail {
+    gap: var(--space-4);
+  }
+
+  .skeleton {
+    width: 17rem;
+  }
+}

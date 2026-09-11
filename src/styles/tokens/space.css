@@ -1,0 +1,42 @@
+/**
+ * Espaçamento, raio e larguras de layout.
+ *
+ * Escala de 4px. Os saltos (6 → 8 → 10 → 12 → 16) são de propósito: espaço
+ * grande é decisão de composição, e ter meio-tom para tudo só produz telas
+ * com ritmo aleatório.
+ */
+
+:root {
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 100px;
+
+  --width-content: 1280px;
+  --width-menu: 1080px;
+  --width-order: 680px;
+  --width-text: 34rem;
+
+  --height-bottom-bar: 4.5rem;
+  --height-top-bar: 4.5rem;
+
+  /* Documentação: custom property não funciona dentro de `@media`, então o
+     valor aparece literal nas media queries. Breakpoints do projeto: */
+  --bp-md: 768px;
+  --bp-lg: 1080px;
+}

@@ -1,0 +1,45 @@
+/**
+ * Escalas cruas de cor.
+ *
+ * Ninguém consome estes tokens direto — quem os usa são os arquivos de tema,
+ * que dão a eles um papel (`--color-background`, `--color-text`…). Essa indireção é o
+ * que permite ter dois temas sem duplicar o CSS dos componentes.
+ *
+ * Só neutros e cores de estado moram aqui. A cor da MARCA é escolhida no admin
+ * e vive em `themes/brands.css`, com uma paleta por opção.
+ *
+ * Espaço de cor: oklch. Lightness é perceptual, então `--neutral-40` tem o
+ * mesmo peso visual em qualquer matiz — o que não vale para HSL.
+ */
+
+:root {
+  /* Neutros levemente quentes (matiz 80): seguram qualquer cor de marca sem
+     esfriar a foto de comida, que é o conteúdo dominante do site. Neutro puro
+     deixaria a tela com cara de painel de sistema. */
+  --neutral-0: oklch(1 0 0);
+  --neutral-2: oklch(0.985 0.004 80);
+  --neutral-5: oklch(0.965 0.005 80);
+  --neutral-10: oklch(0.94 0.006 80);
+  --neutral-15: oklch(0.905 0.007 80);
+  --neutral-20: oklch(0.87 0.008 80);
+  --neutral-30: oklch(0.78 0.009 80);
+  --neutral-40: oklch(0.68 0.01 80);
+  --neutral-50: oklch(0.58 0.011 80);
+  --neutral-60: oklch(0.48 0.012 80);
+  --neutral-70: oklch(0.38 0.012 80);
+  --neutral-80: oklch(0.3 0.012 80);
+  --neutral-85: oklch(0.26 0.011 80);
+  --neutral-90: oklch(0.22 0.01 80);
+  --neutral-93: oklch(0.19 0.008 80);
+  --neutral-95: oklch(0.165 0.007 80);
+  --neutral-97: oklch(0.14 0.006 80);
+  --neutral-100: oklch(0.11 0.005 80);
+
+  /* Estados. Mesma lógica: dois tons por cor, um para cada tema. */
+  --red-45: oklch(0.52 0.19 27);
+  --red-70: oklch(0.7 0.17 25);
+  --green-45: oklch(0.52 0.13 155);
+  --green-70: oklch(0.75 0.15 155);
+  --amber-50: oklch(0.6 0.15 65);
+  --amber-75: oklch(0.8 0.14 75);
+}

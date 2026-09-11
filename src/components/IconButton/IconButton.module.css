@@ -1,0 +1,76 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--duration-fast) var(--easing-standard);
+}
+
+.base:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.base:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Tamanhos ------------------------------------------------------- */
+
+.sm {
+  /* 44px de alvo em telas de toque, mesmo com o quadrado visual menor:
+     o pseudo-elemento estende a área clicável sem mexer no layout. */
+  width: 1.85rem;
+  height: 1.85rem;
+  position: relative;
+  border-radius: var(--radius-sm);
+}
+
+.sm::after {
+  content: '';
+  position: absolute;
+  inset: -0.5rem;
+}
+
+.md {
+  width: 2.35rem;
+  height: 2.35rem;
+}
+
+/* --- Variantes ------------------------------------------------------ */
+
+.primary {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-brand);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-brand-light);
+}
+
+.secondary {
+  background: var(--color-surface-3);
+  color: var(--color-text-soft);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-tertiary);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--color-brand-soft);
+  color: var(--color-brand-text);
+}

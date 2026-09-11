@@ -1,0 +1,19 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Faixa central de tudo que vem depois do hero — o hero é o único bloco que
+   sangra até a borda no celular. */
+.body {
+  width: 100%;
+  max-width: var(--width-content);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .body {
+    padding-inline: var(--space-8);
+  }
+}

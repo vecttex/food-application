@@ -1,0 +1,26 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.filled {
+  color: var(--color-brand);
+  fill: currentColor;
+}
+
+.empty {
+  color: var(--color-border-dashed);
+}
+
+.caption {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}

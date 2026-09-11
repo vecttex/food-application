@@ -1,0 +1,70 @@
+/**
+ * Tema escuro.
+ *
+ * Sobrescreve só o que muda em relação ao claro (`themes/light.css`), nunca a
+ * lista inteira: token que não aparece aqui é porque o valor-base já serve.
+ *
+ * Direção: grafite profundo levemente quente, superfícies separadas por
+ * luminosidade (não por borda dura), marca em um tom mais luminoso que no tema
+ * claro e vidro nas barras fixas. Sombra quase não existe — no escuro ela não separa camada nenhuma;
+ * quem faz esse trabalho é o contraste entre superfícies.
+ *
+ * Um seletor só, `[data-theme='dark']`, sem cópia dentro de
+ * `@media (prefers-color-scheme: dark)`: o script inline do `index.html`
+ * resolve "sistema" e escreve o atributo ANTES do primeiro pintar, então a
+ * media query só cobriria o caso sem JavaScript — em que este SPA não
+ * renderiza nada de qualquer forma. Duplicar quarenta linhas de token para
+ * atender um cenário inexistente é o tipo de coisa que sai de sincronia na
+ * primeira alteração.
+ */
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-background: var(--neutral-97);
+  --color-background-alt: var(--neutral-95);
+  --color-surface: var(--neutral-95);
+  --color-surface-2: var(--neutral-93);
+  --color-surface-3: var(--neutral-90);
+  --color-surface-raised: var(--neutral-93);
+  --color-surface-inverted: var(--neutral-5);
+  --color-text-inverted: var(--neutral-95);
+
+  --color-glass: color-mix(in oklab, var(--neutral-97) 68%, transparent);
+  --color-overlay: color-mix(in oklab, var(--neutral-100) 65%, transparent);
+
+  --color-border: var(--neutral-85);
+  --color-border-strong: var(--neutral-80);
+  --color-border-dashed: var(--neutral-70);
+
+  --color-brand: var(--brand-dark-fill);
+  --color-brand-light: var(--brand-dark-fill-hover);
+  --color-brand-dark: var(--brand-dark-ink);
+  --color-brand-text: var(--brand-dark-ink);
+  --color-brand-soft: color-mix(in oklab, var(--brand-dark-fill) 16%, transparent);
+  --color-brand-soft-strong: color-mix(in oklab, var(--brand-dark-fill) 26%, transparent);
+  --color-on-brand: var(--brand-dark-on);
+  --color-brand-gradient: linear-gradient(
+    135deg,
+    var(--brand-dark-fill-hover),
+    var(--brand-dark-fill)
+  );
+
+  --color-text: var(--neutral-2);
+  --color-text-strong: var(--neutral-5);
+  --color-text-soft: var(--neutral-10);
+  --color-text-secondary: var(--neutral-40);
+  --color-text-tertiary: var(--neutral-50);
+  --color-text-faint: var(--neutral-60);
+
+  --color-error: var(--red-70);
+  --color-error-soft: color-mix(in oklab, var(--red-70) 14%, transparent);
+  --color-success: var(--green-70);
+  --color-success-soft: color-mix(in oklab, var(--green-70) 14%, transparent);
+  --color-warning: var(--amber-75);
+  --color-warning-soft: color-mix(in oklab, var(--amber-75) 14%, transparent);
+  --color-focus: var(--brand-dark-ink);
+
+  --shadow-color: color-mix(in oklab, var(--neutral-100) 55%, transparent);
+  --cover-glow: linear-gradient(180deg, transparent 40%, var(--color-background) 100%);
+}

@@ -1,0 +1,21 @@
+/**
+ * Movimento.
+ *
+ * Três durações só. Interação direta (hover, foco) é instantânea; algo que
+ * entra ou sai da tela ganha o tempo médio; e o `--saida` existe para o que
+ * some, que sempre pode ser mais rápido do que o que aparece.
+ */
+
+:root {
+  --duration-fast: 120ms;
+  --duration-medium: 220ms;
+  --duration-slow: 380ms;
+
+  --easing-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --easing-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Atalho herdado do projeto — continua valendo para transições simples. */
+  --transition: var(--duration-fast) var(--easing-standard);
+  --transition-medium: var(--duration-medium) var(--easing-standard);
+}

@@ -1,0 +1,59 @@
+/**
+ * Punhado de classes globais.
+ *
+ * Entra aqui só o que é usado por telas diferentes E não tem comportamento
+ * próprio — nada que mereça virar componente. A lista é curta de propósito:
+ * utilitário demais vira um framework paralelo, e aí o CSS Module perde a
+ * razão de existir.
+ */
+
+/* Faixa central das páginas. `--width-max` deixa cada tela apertar o
+   limite sem precisar de uma classe nova. */
+.u-container {
+  width: 100%;
+  max-width: var(--width-max, var(--width-content));
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .u-container {
+    padding-inline: var(--space-8);
+  }
+}
+
+/* Trilho horizontal com rolagem por toque e sem barra visível — carrossel de
+   destaques, abas de categoria, galeria. */
+.u-rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.u-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.u-rail > * {
+  scroll-snap-align: start;
+}
+
+/* Texto cortado em N linhas. */
+.u-lines-2,
+.u-lines-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.u-lines-2 {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.u-lines-3 {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}

@@ -1,0 +1,124 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--duration-fast) var(--easing-standard);
+}
+
+/* Afundar 1px no clique é a única animação de botão do projeto: dá o retorno
+   tátil que falta no toque, sem custar layout. */
+.base:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.base:disabled,
+.base[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Variantes ------------------------------------------------------ */
+
+.primary {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-brand);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-brand-light);
+  color: var(--color-on-brand);
+}
+
+.secondary {
+  background: var(--color-surface-3);
+  color: var(--color-text-strong);
+  box-shadow: var(--ring);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.ghost {
+  background: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text-soft);
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: var(--color-brand);
+  color: var(--color-brand-text);
+  background: var(--color-brand-soft);
+}
+
+/* Dourado translúcido: ação secundária que ainda é da marca (ex.: "Ver todos
+   os destaques") sem competir com o botão principal da tela. */
+.soft {
+  background: var(--color-brand-soft);
+  color: var(--color-brand-text);
+}
+
+.soft:hover:not(:disabled) {
+  background: var(--color-brand-soft-strong);
+}
+
+.danger {
+  background: transparent;
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--color-error-soft);
+}
+
+/* --- Tamanhos ------------------------------------------------------- */
+
+.sm {
+  padding: 0.55rem 0.85rem;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-sm);
+}
+
+.md {
+  padding: 0.72rem 1.15rem;
+  font-size: var(--text-sm);
+}
+
+.lg {
+  padding: 0.95rem 1.4rem;
+  font-size: var(--text-md);
+  border-radius: var(--radius-lg);
+}
+
+/* --- Modificadores -------------------------------------------------- */
+
+.pill {
+  border-radius: var(--radius-pill);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Usado no CTA "Ver pedido", que tem rótulo à esquerda e resumo à direita. */
+.spaceBetween {
+  justify-content: space-between;
+}

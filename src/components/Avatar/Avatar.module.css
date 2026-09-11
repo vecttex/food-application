@@ -1,0 +1,24 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-brand-soft);
+  color: var(--color-brand-text);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--text-xs);
+}
+
+.md {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--text-sm);
+}

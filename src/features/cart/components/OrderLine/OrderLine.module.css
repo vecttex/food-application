@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--ring);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  margin-bottom: 0.125rem;
+}
+
+.price {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-text);
+}
+
+.unitPrice {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-faint);
+}
+
+@media (min-width: 768px) {
+  .row {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .name {
+    font-size: var(--text-lg);
+  }
+
+  .price {
+    font-size: var(--text-md);
+  }
+}

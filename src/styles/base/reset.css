@@ -1,0 +1,66 @@
+/**
+ * Reset mínimo.
+ *
+ * Só o que o navegador acerta errado por padrão. Um reset agressivo obrigaria
+ * a reconstruir estilo de formulário do zero, e o padrão nativo de `input` e
+ * `select` é bom o bastante depois de herdar fonte e cor.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}

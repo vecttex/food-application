@@ -1,0 +1,18 @@
+.base {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-3) 0%,
+    var(--color-surface-2) 50%,
+    var(--color-surface-3) 100%
+  );
+  background-size: 200% 100%;
+  animation: brilho 1.4s var(--easing-smooth) infinite;
+}
+
+@keyframes brilho {
+  to {
+    background-position: -200% 0;
+  }
+}

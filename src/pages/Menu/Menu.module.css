@@ -1,0 +1,176 @@
+.page {
+  max-width: var(--width-menu);
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-5) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* --- Cabeçalho ------------------------------------------------------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* --- Busca ----------------------------------------------------------- */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.9rem;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.searchField {
+  width: 100%;
+  padding: 0.8rem 2.6rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text-strong);
+  font-size: var(--text-md);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.searchField::placeholder {
+  color: var(--color-text-faint);
+}
+
+.searchField:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px var(--color-brand-soft);
+}
+
+/* O X nativo do `type=search` só existe em alguns navegadores e não segue o
+   tema; o botão próprio garante o mesmo comportamento em todos. */
+.searchField::-webkit-search-cancel-button {
+  display: none;
+}
+
+.searchClear {
+  position: absolute;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--color-surface-3);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.searchClear:hover {
+  background: var(--color-border);
+}
+
+.result {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* --- Lista ----------------------------------------------------------- */
+
+.tabs {
+  position: sticky;
+  top: calc(var(--height-top-bar) + var(--space-1));
+  z-index: 5;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.skeleton {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--ring);
+}
+
+.skeletonText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  padding-top: var(--space-1);
+}
+
+/* --- Barra fixa do pedido -------------------------------------------- */
+
+/* Só no mobile: no desktop o mesmo atalho já existe no cabeçalho, e duas
+   entradas para a mesma tela confundem. */
+.orderBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--height-bottom-bar) + env(safe-area-inset-bottom));
+  z-index: 15;
+  padding: var(--space-3) var(--space-5);
+  background: linear-gradient(180deg, transparent, var(--color-background) 45%);
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: var(--space-10) var(--space-8) var(--space-16);
+    gap: var(--space-6);
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .title {
+    font-size: var(--text-4xl);
+  }
+
+  .search {
+    width: min(22rem, 100%);
+  }
+
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .orderBar {
+    display: none;
+  }
+}

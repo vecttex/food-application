@@ -1,0 +1,72 @@
+/**
+ * Tema claro — e a definição-base de TODO token semântico do projeto.
+ *
+ * Está em `:root` puro de propósito: é o piso. O tema escuro só sobrescreve o
+ * que muda, então nenhum token corre o risco de existir em um tema e faltar no
+ * outro. Se um `--cor-*` novo nascer, ele nasce aqui primeiro.
+ *
+ * Direção: superfícies brancas sobre um fundo levemente quente, sombra suave
+ * em vez de borda dura, foto grande — o vocabulário dos apps de delivery. A cor
+ * da marca entra em dois tons diferentes: um para preencher botão, outro, mais
+ * escuro, para virar texto sobre branco (AA em todos os pares de texto).
+ */
+
+:root {
+  color-scheme: light;
+
+  /* --- Superfícies -------------------------------------------------- */
+  --color-background: var(--neutral-2);
+  --color-background-alt: var(--neutral-5);
+  --color-surface: var(--neutral-0);
+  --color-surface-2: var(--neutral-0);
+  --color-surface-3: var(--neutral-5);
+  --color-surface-raised: var(--neutral-0);
+  --color-surface-inverted: var(--neutral-90);
+  --color-text-inverted: var(--neutral-2);
+
+  /* Vidro: barra fixa e chips por cima de foto. */
+  --color-glass: color-mix(in oklab, var(--neutral-0) 72%, transparent);
+  --color-overlay: color-mix(in oklab, var(--neutral-100) 45%, transparent);
+
+  /* --- Traços ------------------------------------------------------- */
+  --color-border: var(--neutral-10);
+  --color-border-strong: var(--neutral-15);
+  --color-border-dashed: var(--neutral-20);
+
+  /* --- Marca --------------------------------------------------------
+     Os valores vêm da paleta ativa (`themes/brands.css`), escolhida no admin.
+     Aqui só se decide qual papel cada tom cumpre no tema claro. */
+  --color-brand: var(--brand-light-fill);
+  --color-brand-light: var(--brand-light-fill-hover);
+  --color-brand-dark: var(--brand-light-ink);
+  --color-brand-text: var(--brand-light-ink);
+  --color-brand-soft: color-mix(in oklab, var(--brand-light-fill) 16%, transparent);
+  --color-brand-soft-strong: color-mix(in oklab, var(--brand-light-fill) 28%, transparent);
+  --color-on-brand: var(--brand-light-on);
+  --color-brand-gradient: linear-gradient(
+    135deg,
+    var(--brand-light-fill),
+    var(--brand-light-fill-hover)
+  );
+
+  /* --- Texto -------------------------------------------------------- */
+  --color-text: var(--neutral-90);
+  --color-text-strong: var(--neutral-85);
+  --color-text-soft: var(--neutral-80);
+  --color-text-secondary: var(--neutral-60);
+  --color-text-tertiary: var(--neutral-50);
+  --color-text-faint: var(--neutral-40);
+
+  /* --- Estado ------------------------------------------------------- */
+  --color-error: var(--red-45);
+  --color-error-soft: color-mix(in oklab, var(--red-45) 10%, transparent);
+  --color-success: var(--green-45);
+  --color-success-soft: color-mix(in oklab, var(--green-45) 12%, transparent);
+  --color-warning: var(--amber-50);
+  --color-warning-soft: color-mix(in oklab, var(--amber-50) 14%, transparent);
+  --color-focus: var(--brand-light-ink);
+
+  /* --- Elevação ----------------------------------------------------- */
+  --shadow-color: color-mix(in oklab, var(--neutral-100) 14%, transparent);
+  --cover-glow: linear-gradient(180deg, transparent 45%, var(--color-background) 100%);
+}

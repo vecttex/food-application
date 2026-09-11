@@ -1,0 +1,192 @@
+/**
+ * Casca do admin.
+ *
+ * Mobile: coluna única, com a navegação virando uma barra de abas fixa embaixo.
+ * Desktop: coluna lateral fixa de 15rem e o conteúdo rolando ao lado.
+ */
+
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background-alt);
+}
+
+/* --- Lateral / barra de abas ----------------------------------------- */
+
+.sidebar {
+  display: contents;
+}
+
+.brand {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.brandTag {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--color-brand-text);
+}
+
+.nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 20;
+  display: flex;
+  background: var(--color-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2) 0 calc(var(--space-2) + env(safe-area-inset-bottom));
+}
+
+.link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) 0;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.linkActive,
+.linkActive:hover {
+  color: var(--color-brand-text);
+}
+
+/* Tema, "ver o site" e sair não cabem na barra de abas do celular — sobem
+   para dentro da página de visão geral, que já é o ponto de partida. */
+.sidebarFooter {
+  display: none;
+}
+
+/* --- Conteúdo -------------------------------------------------------- */
+
+.content {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-5) var(--space-5)
+    calc(var(--height-bottom-bar) + var(--space-8) + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 900px) {
+  .shell {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    width: 15rem;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .brand {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 var(--space-2);
+    background: none;
+    backdrop-filter: none;
+    border: none;
+  }
+
+  .brandName {
+    font-size: var(--text-xl);
+  }
+
+  .nav {
+    position: static;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+  }
+
+  .link {
+    flex: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--text-md);
+  }
+
+  .link:hover {
+    background: var(--color-surface-3);
+  }
+
+  .linkActive,
+  .linkActive:hover {
+    background: var(--color-brand-soft);
+  }
+
+  .sidebarFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .linkSecundario {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0 var(--space-1);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+  }
+
+  .linkSecundario:hover {
+    color: var(--color-brand-text);
+  }
+
+  .content {
+    padding: var(--space-8);
+    min-width: 0;
+  }
+}

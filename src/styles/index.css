@@ -1,0 +1,31 @@
+/**
+ * Ponto de entrada da camada de styles.
+ *
+ * A ordem importa e é a única regra difícil deste arquivo:
+ *   1. tokens    — valores crus e escalas. Não pintam nada sozinhos.
+ *   2. temas     — `brands.css` traz a paleta de marca escolhida no admin;
+ *                  `light.css` e `dark.css` amarram os tokens semânticos
+ *                  (--cor-*) a cada tema.
+ *   3. base      — reset e defaults do documento, já usando os semânticos.
+ *   4. utilities — punhado de classes globais que não valem um componente.
+ *
+ * Estilo de componente NÃO mora aqui. Cada componente tem seu `.module.css`,
+ * e nenhum deles escreve valor de cor literal: se falta um tom, ele nasce em
+ * `themes/`, nunca no módulo.
+ */
+
+@import './tokens/palette.css';
+@import './tokens/typography.css';
+@import './tokens/space.css';
+@import './tokens/elevation.css';
+@import './tokens/motion.css';
+
+@import './themes/brands.css';
+@import './themes/light.css';
+@import './themes/dark.css';
+
+@import './base/reset.css';
+@import './base/document.css';
+@import './base/a11y.css';
+
+@import './utilities/layout.css';

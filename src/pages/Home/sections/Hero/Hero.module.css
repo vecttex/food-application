@@ -1,0 +1,169 @@
+/**
+ * Abertura da Home.
+ *
+ * Mobile: a foto é o fundo da tela inteira e o texto sobe por cima dela.
+ * Desktop: duas colunas, texto à esquerda e foto à direita, com o mesmo HTML —
+ * quem reposiciona é o grid, não um segundo componente.
+ */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 30rem;
+}
+
+.background {
+  grid-area: 1 / 1;
+  position: relative;
+  height: 100%;
+  min-height: 30rem;
+  overflow: hidden;
+}
+
+.background > * {
+  height: 100%;
+}
+
+/* Véu que garante contraste do texto por cima da foto — sem ele, uma capa
+   clara deixaria o título ilegível no tema claro. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-background) 30%, transparent) 0%,
+      color-mix(in oklab, var(--color-background) 72%, transparent) 55%,
+      var(--color-background) 100%
+    );
+}
+
+.content {
+  grid-area: 1 / 1;
+  position: relative;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-5) var(--space-6);
+  max-width: var(--width-content);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  max-width: 16ch;
+}
+
+.lead {
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  max-width: var(--width-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.actions > * {
+  flex: 1 1 12rem;
+}
+
+/* --- Faixa de números ------------------------------------------------ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  background: var(--color-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--ring);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.statLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.statValue {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: var(--space-10);
+    max-width: var(--width-content);
+    margin-inline: auto;
+    padding: var(--space-12) var(--space-8);
+    min-height: auto;
+  }
+
+  .background {
+    grid-area: auto;
+    order: 2;
+    min-height: 32rem;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .content {
+    grid-area: auto;
+    order: 1;
+    align-self: center;
+    padding: 0;
+    gap: var(--space-5);
+  }
+
+  .title {
+    font-size: var(--text-5xl);
+  }
+
+  .lead {
+    font-size: 1.0625rem;
+  }
+
+  .actions > * {
+    flex: 0 0 auto;
+  }
+
+  .stats {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    padding: var(--space-5);
+    background: var(--color-surface);
+  }
+}
